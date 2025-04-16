@@ -44,6 +44,10 @@ func (s *contactService) CreateContact(req *requests.ContactRequest) (*models.Co
 	return &contact, err
 }
 
+func (s *contactService) GetAllContacts() ([]models.Contact, error) {
+	return s.repository.FindAll()
+}
+
 func (s *contactService) GetContactByID(id uint) (*models.Contact, error) {
 	return s.repository.FindByID(id)
 }
